@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Auteur Console | AI Animation Studio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-container": "#86c5b3",
+              "error-container": "#93000a",
+              "primary-fixed": "#ffdbcb",
+              "surface-container-low": "#131b2e",
+              "on-primary-fixed-variant": "#793100",
+              "tertiary-fixed": "#e3dfff",
+              "tertiary-container": "#655bf7",
+              background: "#0b1326",
+              "outline-variant": "#3e4949",
+              "surface-variant": "#2d3449",
+              tertiary: "#c4c0ff",
+              primary: "#ffb692",
+              "inverse-on-surface": "#283044",
+              "on-tertiary-fixed-variant": "#3622ca",
+              "on-secondary-fixed-variant": "#065043",
+              "surface-container": "#171f33",
+              "on-tertiary": "#2000a4",
+              "on-error": "#690005",
+              "on-background": "#dae2fd",
+              "surface-container-lowest": "#060e20",
+              "surface-bright": "#31394d",
+              "on-surface-variant": "#bdc9c8",
+              "surface-container-highest": "#2d3449",
+              outline: "#879392",
+              "secondary-container": "#0b5345",
+              "on-secondary": "#00382e",
+              secondary: "#94d3c1",
+              "on-tertiary-fixed": "#100069",
+              "inverse-surface": "#dae2fd",
+              "secondary-fixed": "#afefdd",
+              "on-primary": "#552000",
+              "surface-tint": "#ffb692",
+              "secondary-fixed-dim": "#94d3c1",
+              "surface-dim": "#0b1326",
+              "on-secondary-fixed": "#00201a",
+              "on-primary-container": "#fff8f6",
+              "inverse-primary": "#9f4200",
+              "primary-container": "#bf5100",
+              "on-surface": "#dae2fd",
+              "on-tertiary-container": "#fcf8ff",
+              "on-primary-fixed": "#341100",
+              error: "#ffb4ab",
+              "tertiary-fixed-dim": "#c4c0ff",
+              "surface-container-high": "#222a3d",
+              "primary-fixed-dim": "#ffb692",
+              surface: "#0b1326",
+              "on-error-container": "#ffdad6",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #0b1326;
+      }
+      .font-manrope {
+        font-family: "Manrope", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-background overflow-hidden">
+    <!-- Sidebar Navigation -->
+    <aside
+      class="fixed left-0 top-0 h-screen hidden md:flex flex-col w-64 bg-[#131b2e] border-none z-50"
+    >
+      <div class="p-6 flex flex-col h-full">
+        <div class="mb-10">
+          <h1
+            class="text-xl font-bold text-[#ffb692] uppercase tracking-tighter font-manrope"
+          >
+            AnimaStoryAI
+          </h1>
+          <p class="text-[10px] label-md text-on-surface-variant tracking-widest mt-1">
+            n8n Engine Active
+          </p>
+        </div>
+        <nav class="flex-1 space-y-2">
+          <a
+            class="flex items-center gap-3 px-4 py-3 text-[#bdc9c8] hover:text-white hover:bg-[#31394d] transition-colors rounded-lg font-manrope text-sm tracking-wide"
+            href="index.html"
+          >
+            <span class="material-symbols-outlined" data-icon="add_box">add_box</span>
+            <span>Create Story</span>
+          </a>
+          <a
+            class="flex items-center gap-3 px-4 py-3 text-[#ffb692] font-semibold bg-[#222a3d] rounded-lg scale-98 transition-transform duration-200 font-manrope text-sm tracking-wide"
+            href="index - copy.html"
+          >
+            <span class="material-symbols-outlined" data-icon="history">history</span>
+            <span>Creation History</span>
+          </a>
+          <a
+            class="flex items-center gap-3 px-4 py-3 text-[#bdc9c8] hover:text-white hover:bg-[#31394d] transition-colors rounded-lg font-manrope text-sm tracking-wide"
+            href="#"
+          >
+            <span class="material-symbols-outlined" data-icon="settings">settings</span>
+            <span>Settings</span>
+          </a>
+          <a
+            class="flex items-center gap-3 px-4 py-3 text-[#bdc9c8] hover:text-white hover:bg-[#31394d] transition-colors rounded-lg font-manrope text-sm tracking-wide"
+            href="#"
+          >
+            <span class="material-symbols-outlined" data-icon="person">person</span>
+            <span>Account</span>
+          </a>
+        </nav>
+        <div class="mt-auto pt-6 space-y-4">
+          <div class="space-y-1">
+            <a
+              class="flex items-center gap-3 px-4 py-2 text-[#bdc9c8] hover:text-white transition-colors text-xs font-manrope"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-sm" data-icon="help">help</span>
+              <span>Support</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Canvas Area -->
+    <main class="md:ml-64 h-screen flex flex-col relative overflow-hidden">
+      <!-- Top App Bar -->
+      <header
+        class="flex justify-between items-center px-8 py-6 w-full z-40 sticky top-0 bg-[#0b1326]/80 backdrop-blur-xl"
+      >
+        <div class="flex items-center gap-6">
+          <span class="text-lg font-black text-white font-manrope tracking-tight"
+            >AnimaStoryAI</span
+          >
+          <nav class="hidden lg:flex items-center gap-6 font-manrope">
+            <a class="text-[#ffb692] border-b-2 border-[#ffb692] pb-1 text-sm font-medium" href="#"
+              >Studio</a
+            >
+            <a
+              class="text-[#bdc9c8] hover:text-white transition-opacity text-sm font-medium"
+              href="#"
+              >Workflow</a
+            >
+          </nav>
+        </div>
+        <div class="flex items-center gap-4">
+          <button class="p-2 text-[#bdc9c8] hover:text-white transition-opacity">
+            <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+          </button>
+          <button class="p-2 text-[#bdc9c8] hover:text-white transition-opacity">
+            <span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+          </button>
+          <div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest">
+            <img
+              alt="User Avatar"
+              class="w-full h-full object-cover"
+              data-alt="Close-up portrait of a professional male digital artist in a dimly lit studio with teal backlight"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgJ6A_FpeWYDJcbcjptJeC04pkmPFMOEH3wROmwE_I0w6hqe8AjVVkby2yvGPiGmJ0Xo2oETKhI9IJncVYQTdOO_kb3Z4lkwYi9ZHm62rDfW8aKfUl1wWrG18bLFDx_XJb7Qt7-yzRb78Diso13oXdl7iGJnqHj_mJ_nKclaQo9H37hK8-m8RvE84x8Lj36TeL14SEWKOr0rw8o-BenOlbdQFRyJ_XTeYhLXkoVR5ntjf_sj9aTsLTwh_Rj3CIoIi040xAbHJFqxY"
+            />
+          </div>
+        </div>
+      </header>
+
+      <!-- Chat / History Scroll Area -->
+      <div class="flex-1 overflow-y-auto px-6 md:px-20 py-8 space-y-16 pb-48">
+        <!-- Message Block: Greeting/Intro -->
+        <div class="max-w-4xl mx-auto text-center space-y-4">
+          <h2 class="text-3xl md:text-5xl font-extrabold font-manrope text-on-surface tracking-tighter">
+            Creation History
+          </h2>
+          <p class="text-on-surface-variant text-lg">Tell me the story "The fox and grapes" and generate a video for me.</p>
+        </div>
+
+        <!-- Video Result Card -->
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-surface-container-low rounded-2xl overflow-hidden group">
+            <div class="aspect-video bg-surface-container-lowest relative group">
+              <div
+                class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity z-10 cursor-pointer"
+                data-video-overlay
+              >
+                <span
+                  class="material-symbols-outlined text-white text-6xl"
+                  data-icon="play_circle"
+                  style="font-variation-settings: 'FILL' 1;"
+                  >play_circle</span
+                >
+              </div>
+
+              <video
+                class="w-full h-full object-cover"
+                data-history-video
+                playsinline
+                preload="metadata"
+                src="con%20c%C3%A1o%20v%C3%A0%20ch%C3%B9m%20nho.mp4"
+              ></video>
+
+              <div class="absolute bottom-0 left-0 right-0 h-1 bg-secondary-container">
+                <div class="h-full bg-secondary w-full"></div>
+              </div>
+            </div>
+
+            <div class="p-6 flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div class="flex flex-col">
+                  <span class="text-sm font-medium text-tertiary">con cáo và chùm nho</span>
+                </div>
+                <div class="h-8 w-px bg-outline-variant/20 mx-2"></div>
+                <div class="flex flex-col">
+                  <span class="text-sm font-medium text-tertiary">mp4</span>
+                </div>
+              </div>
+              <a
+                class="flex items-center gap-2 px-6 py-2 rounded-full border border-outline-variant/40 hover:text-on-tertiary-container hover:bg-surface-bright transition-all text-sm font-semibold"
+                href="con%20c%C3%A1o%20v%C3%A0%20ch%C3%B9m%20nho.mp4"
+                download
+              >
+                <span class="material-symbols-outlined text-lg" data-icon="download">download</span>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Command Center (Fixed Bottom) -->
+      <div
+        class="absolute bottom-0 left-0 right-0 p-6 md:p-10 bg-gradient-to-t from-background via-background/90 to-transparent pt-20 z-50"
+      >
+        <div class="max-w-5xl mx-auto">
+          <!-- Status Area -->
+          <div class="flex items-center gap-2 mb-4 px-4">
+            <span class="flex h-2 w-2 rounded-full bg-secondary animate-pulse"></span>
+            <span id="statusText" class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase"
+              >System: Ready</span
+            >
+          </div>
+
+          <!-- Input Container (kept for layout consistency) -->
+          <div class="relative group">
+            <div
+              class="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-tertiary/20 rounded-[2rem] blur opacity-50 group-focus-within:opacity-100 transition-opacity"
+            ></div>
+            <div class="relative flex items-center gap-4 bg-surface-container-highest p-3 rounded-[2rem] shadow-2xl">
+              <div class="pl-4 text-on-surface-variant">
+                <span class="material-symbols-outlined" data-icon="movie_edit">movie_edit</span>
+              </div>
+              <textarea
+                id="promptInput"
+                class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface placeholder-on-surface-variant/50 py-4 resize-none font-body text-lg"
+                placeholder="Describe the motion, scene, and style in detail..."
+                rows="1"
+              ></textarea>
+              <div class="flex items-center gap-2 pr-2">
+                <button class="p-3 text-on-surface-variant hover:text-white transition-colors">
+                  <span class="material-symbols-outlined" data-icon="attach_file">attach_file</span>
+                </button>
+                <button
+                  id="generateBtn"
+                  class="bg-gradient-to-br from-[#ffb692] to-[#bf5100] text-on-primary-fixed font-black text-sm uppercase tracking-wider px-8 py-4 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center gap-3"
+                >
+                  Generate Video
+                  <span
+                    class="material-symbols-outlined"
+                    data-icon="auto_videocam"
+                    style="font-variation-settings: 'FILL' 1;"
+                    >auto_videocam</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Auteur Console | AI Animation Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="script.js"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#86c5b3",
+                    "error-container": "#93000a",
+                    "primary-fixed": "#ffdbcb",
+                    "surface-container-low": "#131b2e",
+                    "on-primary-fixed-variant": "#793100",
+                    "tertiary-fixed": "#e3dfff",
+                    "tertiary-container": "#655bf7",
+                    "background": "#0b1326",
+                    "outline-variant": "#3e4949",
+                    "surface-variant": "#2d3449",
+                    "tertiary": "#c4c0ff",
+                    "primary": "#ffb692",
+                    "inverse-on-surface": "#283044",
+                    "on-tertiary-fixed-variant": "#3622ca",
+                    "on-secondary-fixed-variant": "#065043",
+                    "surface-container": "#171f33",
+                    "on-tertiary": "#2000a4",
+                    "on-error": "#690005",
+                    "on-background": "#dae2fd",
+                    "surface-container-lowest": "#060e20",
+                    "surface-bright": "#31394d",
+                    "on-surface-variant": "#bdc9c8",
+                    "surface-container-highest": "#2d3449",
+                    "outline": "#879392",
+                    "secondary-container": "#0b5345",
+                    "on-secondary": "#00382e",
+                    "secondary": "#94d3c1",
+                    "on-tertiary-fixed": "#100069",
+                    "inverse-surface": "#dae2fd",
+                    "secondary-fixed": "#afefdd",
+                    "on-primary": "#552000",
+                    "surface-tint": "#ffb692",
+                    "secondary-fixed-dim": "#94d3c1",
+                    "surface-dim": "#0b1326",
+                    "on-secondary-fixed": "#00201a",
+                    "on-primary-container": "#fff8f6",
+                    "inverse-primary": "#9f4200",
+                    "primary-container": "#bf5100",
+                    "on-surface": "#dae2fd",
+                    "on-tertiary-container": "#fcf8ff",
+                    "on-primary-fixed": "#341100",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed-dim": "#c4c0ff",
+                    "surface-container-high": "#222a3d",
+                    "primary-fixed-dim": "#ffb692",
+                    "surface": "#0b1326",
+                    "on-error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #0b1326;
+      }
+      .font-manrope { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-screen hidden md:flex flex-col w-64 bg-[#131b2e] border-none z-50">
+<div class="p-6 flex flex-col h-full">
+<div class="mb-10">
+<h1 class="text-xl font-bold text-[#ffb692] uppercase tracking-tighter font-manrope">AnimaStoryAI</h1>
+<p class="text-[10px] label-md text-on-surface-variant tracking-widest mt-1">n8n Engine Active</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-[#bdc9c8] hover:text-white hover:bg-[#31394d] transition-colors rounded-lg font-manrope text-sm tracking-wide" href="index.html">
+<span class="material-symbols-outlined" data-icon="add_box">add_box</span>
+<span>Create Story</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#ffb692] font-semibold bg-[#222a3d] rounded-lg scale-98 transition-transform duration-200 font-manrope text-sm tracking-wide" href="history.html">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span>Creation History</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#bdc9c8] hover:text-white hover:bg-[#31394d] transition-colors rounded-lg font-manrope text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#bdc9c8] hover:text-white hover:bg-[#31394d] transition-colors rounded-lg font-manrope text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span>Account</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 space-y-4">
+
+<div class="space-y-1">
+
+<a class="flex items-center gap-3 px-4 py-2 text-[#bdc9c8] hover:text-white transition-colors text-xs font-manrope" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span>
+<span>Support</span>
+</a>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas Area -->
+<main class="md:ml-64 h-screen flex flex-col relative overflow-hidden">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center px-8 py-6 w-full z-40 sticky top-0 bg-[#0b1326]/80 backdrop-blur-xl">
+<div class="flex items-center gap-6">
+<span class="text-lg font-black text-white font-manrope tracking-tight">AnimaStoryAI</span>
+<nav class="hidden lg:flex items-center gap-6 font-manrope">
+<a class="text-[#ffb692] border-b-2 border-[#ffb692] pb-1 text-sm font-medium" href="#">Studio</a>
+
+<a class="text-[#bdc9c8] hover:text-white transition-opacity text-sm font-medium" href="#">Workflow</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-[#bdc9c8] hover:text-white transition-opacity">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-[#bdc9c8] hover:text-white transition-opacity">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional male digital artist in a dimly lit studio with teal backlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgJ6A_FpeWYDJcbcjptJeC04pkmPFMOEH3wROmwE_I0w6hqe8AjVVkby2yvGPiGmJ0Xo2oETKhI9IJncVYQTdOO_kb3Z4lkwYi9ZHm62rDfW8aKfUl1wWrG18bLFDx_XJb7Qt7-yzRb78Diso13oXdl7iGJnqHj_mJ_nKclaQo9H37hK8-m8RvE84x8Lj36TeL14SEWKOr0rw8o-BenOlbdQFRyJ_XTeYhLXkoVR5ntjf_sj9aTsLTwh_Rj3CIoIi040xAbHJFqxY"/>
+</div>
+</div>
+</header>
+<!-- Chat / History Scroll Area -->
+<div class="flex-1 overflow-y-auto px-6 md:px-20 py-8 space-y-16 pb-48">
+<!-- Message Block: Greeting/Intro -->
+<div class="max-w-4xl mx-auto text-center space-y-4">
+<h2 class="text-3xl md:text-5xl font-extrabold font-manrope text-on-surface tracking-tighter">
+                    Creation History
+                </h2>
+<p class="text-on-surface-variant text-lg">Tell me the story "The fox and grapes" and generate a video for me.</p>
+</div>
+<!-- Message Block: History Prompt -->
+<div class="max-w-4xl mx-auto">
+<div class="mb-8 relative z-20">
+<h3 class="text-2xl font-bold font-manrope text-white">
+                    Tell me the story &quot;The fox and grapes&quot;
+                </h3>
+</div>
+<!-- Video Result Card -->
+<div class="bg-surface-container-low rounded-2xl overflow-hidden group">
+<div class="aspect-video bg-surface-container-lowest relative group">
+<div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity z-10 cursor-pointer" data-video-overlay>
+<span class="material-symbols-outlined text-white text-6xl" data-icon="play_circle" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+<video class="w-full h-full object-cover" data-history-video playsinline preload="metadata" src="con%20c%C3%A1o%20v%C3%A0%20ch%C3%B9m%20nho.mp4"></video>
+<!-- Progress Indicator (Simulated Finished) -->
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-secondary-container">
+<div class="h-full bg-secondary w-full"></div>
+</div>
+</div>
+<div class="p-6 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="flex flex-col">
+</div>
+<div class="h-8 w-px bg-outline-variant/20 mx-2"></div>
+<div class="flex flex-col">
+  <span class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase">
+    System: Ready
+  </span>
+<span class="text-sm font-medium text-tertiary">veo-3.1-fast-generate-preview</span>
+</div>
+</div>
+<a class="flex items-center gap-2 px-6 py-2 rounded-full border border-outline-variant/40 hover:text-on-tertiary-container hover:bg-surface-bright transition-all text-sm font-semibold" href="con%20c%C3%A1o%20v%C3%A0%20ch%C3%B9m%20nho.mp4" download="con-cao-va-chum-nho.mp4" data-download-video>
+<span class="material-symbols-outlined text-lg" data-icon="download">download</span>
+                            Download
+                        </a>
+</div>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+<!-- Command Center (Fixed Bottom) -->
+<div class="absolute bottom-0 left-0 right-0 p-6 md:p-10 bg-gradient-to-t from-background via-background/90 to-transparent pt-20 z-50">
+<div class="max-w-5xl mx-auto">
+<!-- Status Area -->
+<div class="flex items-center gap-2 mb-4 px-4">
+<span class="flex h-2 w-2 rounded-full bg-secondary animate-pulse"></span>
+<span id="statusText" class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase">System: Connected to n8n backend via Webhook</span>
+</div>
+<!-- Input Container -->
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-tertiary/20 rounded-[2rem] blur opacity-50 group-focus-within:opacity-100 transition-opacity"></div>
+<div class="relative flex items-center gap-4 bg-surface-container-highest p-3 rounded-[2rem] shadow-2xl">
+<div class="pl-4 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="movie_edit">movie_edit</span>
+</div>
+<textarea
+  id="promptInput"
+  class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface placeholder-on-surface-variant/50 py-4 resize-none font-body text-lg"
+  placeholder="Describe the motion, scene, and style in detail..."
+  rows="1"
+></textarea>
+<div class="flex items-center gap-2 pr-2">
+<button class="p-3 text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="attach_file">attach_file</span>
+</button>
+<button
+  id="generateBtn"
+  class="bg-gradient-to-br from-[#ffb692] to-[#bf5100] text-on-primary-fixed font-black text-sm uppercase tracking-wider px-8 py-4 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center gap-3"
+>
+  Generate Video
+  <span class="material-symbols-outlined" data-icon="auto_videocam" style="font-variation-settings: 'FILL' 1;">auto_videocam</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex justify-center gap-6 mt-4">
+<button class="flex items-center gap-1 text-[11px] font-bold text-on-surface-variant hover:text-tertiary transition-colors uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm" data-icon="magic_button">magic_button</span>
+                        Enhance Prompt
+                    </button>
+<button class="flex items-center gap-1 text-[11px] font-bold text-on-surface-variant hover:text-tertiary transition-colors uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm" data-icon="settings_ethernet">settings_ethernet</span>
+                        Advanced Parameters
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>
